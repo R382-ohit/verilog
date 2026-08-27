@@ -7,78 +7,46 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000001965b7ebae0 .scope module, "testbench" "testbench" 2 1;
+S_00000173a1409ec0 .scope module, "testbench" "testbench" 2 1;
  .timescale 0 0;
-v000001965b6f70e0_0 .net "OUT", 0 0, L_000001965b7ebc70;  1 drivers
-v000001965b751340_0 .var "X1", 0 0;
-v000001965b750e40_0 .var "X2", 0 0;
-v000001965b751520_0 .var "X3", 0 0;
-v000001965b751020_0 .var "X4", 0 0;
-v000001965b750940_0 .var "X5", 0 0;
-v000001965b751200_0 .var "X6", 0 0;
-S_000001965b7ee060 .scope module, "DUT" "association" 2 5, 3 1 0, S_000001965b7ebae0;
+v00000173a140d2b0_0 .var "A", 15 0;
+v00000173a140d350_0 .net "F", 0 0, L_00000173a140bb30;  1 drivers
+v00000173a140ba90_0 .var "S", 3 0;
+S_00000173a140cfe0 .scope module, "M" "mux16to1" 2 3, 3 1 0, S_00000173a1409ec0;
  .timescale 0 0;
-    .port_info 0 /INPUT 1 "A";
-    .port_info 1 /INPUT 1 "B";
-    .port_info 2 /INPUT 1 "C";
-    .port_info 3 /INPUT 1 "D";
-    .port_info 4 /INPUT 1 "E";
-    .port_info 5 /INPUT 1 "F";
-    .port_info 6 /OUTPUT 1 "Y";
-L_000001965b7ee470 .functor NAND 1, v000001965b751340_0, v000001965b750e40_0, C4<1>, C4<1>;
-L_000001965b6d3980 .functor AND 1, v000001965b751520_0, L_000001965b6d3ae0, v000001965b751020_0, C4<1>;
-L_000001965b6d3ae0 .functor NOT 1, v000001965b750e40_0, C4<0>, C4<0>, C4<0>;
-L_000001965b705110 .functor NOR 1, v000001965b750940_0, v000001965b751200_0, C4<0>, C4<0>;
-L_000001965b7ebc70 .functor NAND 1, L_000001965b7ee470, L_000001965b6d3980, L_000001965b705110, C4<1>;
-v000001965b6d3c40_0 .net "A", 0 0, v000001965b751340_0;  1 drivers
-v000001965b6d30e0_0 .net "B", 0 0, v000001965b750e40_0;  1 drivers
-v000001965b704d70_0 .net "C", 0 0, v000001965b751520_0;  1 drivers
-v000001965b704e10_0 .net "D", 0 0, v000001965b751020_0;  1 drivers
-v000001965b704eb0_0 .net "E", 0 0, v000001965b750940_0;  1 drivers
-v000001965b704f50_0 .net "F", 0 0, v000001965b751200_0;  1 drivers
-v000001965b7ee1f0_0 .net "Y", 0 0, L_000001965b7ebc70;  alias, 1 drivers
-v000001965b7ee290_0 .net *"_ivl_0", 0 0, L_000001965b6d3ae0;  1 drivers
-v000001965b7ee330_0 .net "t1", 0 0, L_000001965b7ee470;  1 drivers
-v000001965b7ee3d0_0 .net "t2", 0 0, L_000001965b6d3980;  1 drivers
-v000001965b6f7040_0 .net "t3", 0 0, L_000001965b705110;  1 drivers
-    .scope S_000001965b7ebae0;
+    .port_info 0 /INPUT 16 "in";
+    .port_info 1 /INPUT 4 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+v00000173a140d170_0 .net "in", 15 0, v00000173a140d2b0_0;  1 drivers
+v00000173a14230e0_0 .net "out", 0 0, L_00000173a140bb30;  alias, 1 drivers
+v00000173a140d210_0 .net "sel", 3 0, v00000173a140ba90_0;  1 drivers
+L_00000173a140bb30 .part/v v00000173a140d2b0_0, v00000173a140ba90_0, 1;
+    .scope S_00000173a1409ec0;
 T_0 ;
-    %vpi_call 2 8 "$dumpfile", "association.vcd" {0 0 0};
-    %vpi_call 2 9 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001965b7ebae0 {0 0 0};
-    %vpi_call 2 11 "$monitor", $time, " X1=%b, X2=%b, X3=%b, X4=%b, X5=%b, X6=%b, OUT=%b", v000001965b751340_0, v000001965b750e40_0, v000001965b751520_0, v000001965b751020_0, v000001965b750940_0, v000001965b751200_0, v000001965b6f70e0_0 {0 0 0};
+    %vpi_call 2 6 "$dumpfile", "mux16to1.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000173a1409ec0 {0 0 0};
+    %vpi_call 2 8 "$monitor", $time, "A=%h,S=%h,F=%b", v00000173a140d2b0_0, v00000173a140ba90_0, v00000173a140d350_0 {0 0 0};
     %delay 5, 0;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b751340_0, 0, 1;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b750e40_0, 0, 1;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b751520_0, 0, 1;
-    %pushi/vec4 1, 0, 1;
-    %store/vec4 v000001965b751020_0, 0, 1;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b750940_0, 0, 1;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b751200_0, 0, 1;
+    %pushi/vec4 16138, 0, 16;
+    %store/vec4 v00000173a140d2b0_0, 0, 16;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v00000173a140ba90_0, 0, 4;
     %delay 5, 0;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b751340_0, 0, 1;
-    %pushi/vec4 1, 0, 1;
-    %store/vec4 v000001965b751520_0, 0, 1;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v00000173a140ba90_0, 0, 4;
     %delay 5, 0;
-    %pushi/vec4 1, 0, 1;
-    %store/vec4 v000001965b751340_0, 0, 1;
-    %pushi/vec4 0, 0, 1;
-    %store/vec4 v000001965b751520_0, 0, 1;
+    %pushi/vec4 6, 0, 4;
+    %store/vec4 v00000173a140ba90_0, 0, 4;
     %delay 5, 0;
-    %pushi/vec4 1, 0, 1;
-    %store/vec4 v000001965b751200_0, 0, 1;
+    %pushi/vec4 12, 0, 4;
+    %store/vec4 v00000173a140ba90_0, 0, 4;
     %delay 5, 0;
-    %vpi_call 2 17 "$finish" {0 0 0};
+    %vpi_call 2 13 "$finish" {0 0 0};
     %end;
     .thread T_0;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";
     "<interactive>";
-    "association-test.v";
-    "association.v";
+    "mux_1-test.v";
+    "mux_1.v";
