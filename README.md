@@ -1,3 +1,5 @@
-8 week plan to get ready for verilog designing.
+8 week plan to get ready for Verilog designing.
 
 WEEK 1 Lectures done.
+
+WEEK 2 Module done .
