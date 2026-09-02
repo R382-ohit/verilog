@@ -1,5 +1,5 @@
 $date
-	Wed Sep 02 10:30:25 2026
+	Wed Sep 02 10:35:55 2026
 $end
 $version
 	Icarus Verilog
@@ -17,17 +17,17 @@ $var reg 1 & mode $end
 $scope module DUT $end
 $var wire 1 " clk $end
 $var wire 1 # clr $end
-$var wire 8 ' d_in [0:7] $end
+$var wire 33 ' d_in [0:32] $end
 $var wire 1 % ld $end
 $var wire 1 & mode $end
 $var parameter 32 ( N $end
-$var reg 8 ) count [0:7] $end
+$var reg 33 ) count [0:32] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b111 (
+b100000 (
 $end
 #0
 $dumpvars
@@ -42,8 +42,8 @@ bx !
 $end
 #2
 1%
-b1010 $
 b1010 '
+b1010 $
 #5
 b1010 !
 b1010 )
@@ -109,8 +109,8 @@ b0 )
 #100
 0"
 1%
-b11111010 $
 b11111010 '
+b11111010 $
 0#
 #105
 b11111010 !
@@ -152,20 +152,20 @@ b11111111 )
 0"
 #165
 b0 !
-b0 )
+b100000000 )
 1"
 #170
 0"
 #175
 b1 !
-b1 )
+b100000001 )
 1"
 #180
 0"
 0&
 #185
 b0 !
-b0 )
+b100000000 )
 1"
 #190
 0"
