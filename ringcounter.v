@@ -7,7 +7,8 @@ module ringcounter(clk,init,count);
                 count = 8'b10000000;
             else 
                 begin
-                    count <= {count[6:0],count[7]};
+                    count <= count << 1;
+                    count[0] <= count[7];
                 end
         end
 endmodule
